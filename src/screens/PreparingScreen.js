@@ -12,7 +12,7 @@ export const PreparingScreen = () => {
 
     useEffect(() => {
         setTimeout(() => {
-            navigation.navigate("DeliveryScreen")
+            navigation.replace("DeliveryScreen")
         }, 4000)
     }, []);
 
@@ -21,7 +21,7 @@ export const PreparingScreen = () => {
             <Animatable.Image
                 source={require("../assets/ni3-unscreen.gif")}
                 animation="slideInUp"
-                interationCount={2}
+                interationCount={1}
                 className="h-96 w-96"
             />
             <Animatable.Text
