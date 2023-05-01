@@ -18,11 +18,16 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.aristiguetam.clone",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.aristiguetam.clone"
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyCiGslxGHjmM4MGtc3EAwsxysITcP2mdWs"
+        }
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -31,6 +36,12 @@
       "eas": {
         "projectId": "c6e7bdc9-daf6-4a14-8d69-efca53717831"
       }
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/c6e7bdc9-daf6-4a14-8d69-efca53717831"
     }
   }
 }

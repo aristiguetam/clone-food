@@ -5,9 +5,8 @@ import { useSelector } from 'react-redux'
 import { useNavigation } from '@react-navigation/native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { XMarkIcon } from 'react-native-heroicons/outline'
-import MapView, { Marker } from 'react-native-maps';
-// import MapViewDirections from "react-native-maps-directions"
-// import { GOOGLE_MAPS_KEY } from "@env";
+import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
+
 
 import { selectRestaurant } from '../redux/reducer/restaurantSlice'
 
@@ -15,7 +14,7 @@ export const DeliveryScreen = () => {
 
   const navigation = useNavigation()
   const restaurant = useSelector(selectRestaurant)
-  console.log(restaurant.lat)
+  
   return (
     <View className="bg-[#00CCBB] flex-1">
       <SafeAreaView className="z-50" >
@@ -49,7 +48,7 @@ export const DeliveryScreen = () => {
 
       <MapView
         style={{ flex: 1 }}
-        provider='AIzaSyCiGslxGHjmM4MGtc3EAwsxysITcP2mdWs'
+        provider={PROVIDER_GOOGLE}
         initialRegion={{
           latitude: restaurant.lat,
           longitude: restaurant.long,
@@ -58,18 +57,9 @@ export const DeliveryScreen = () => {
         }}
         className="flex-1 -mt-10 z-0"
         mapType='mutedStandard'
+        
       >
-        {/* <MapViewDirections
-          origin={{
-            latitude: restaurant.lat,
-            longitude: restaurant.long,
-          }}
-          destination={{
-            latitude: -12.067799,
-            longitude: -76.968554,
-          }}
-          apikey={GOOGLE_MAPS_KEY}
-        /> */}
+       
         <Marker
           coordinate={{
             latitude: restaurant.lat,
