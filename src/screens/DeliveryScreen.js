@@ -1,21 +1,21 @@
 import { View, Text, TouchableOpacity, Image } from 'react-native'
 
+import * as Progress from 'react-native-progress';
 import { useSelector } from 'react-redux'
 import { useNavigation } from '@react-navigation/native'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import * as Progress from 'react-native-progress';
-
-
+import { XMarkIcon } from 'react-native-heroicons/outline'
+import MapView, { Marker } from 'react-native-maps';
+// import MapViewDirections from "react-native-maps-directions"
+// import { GOOGLE_MAPS_KEY } from "@env";
 
 import { selectRestaurant } from '../redux/reducer/restaurantSlice'
-import { XMarkIcon } from 'react-native-heroicons/outline'
-
 
 export const DeliveryScreen = () => {
 
   const navigation = useNavigation()
   const restaurant = useSelector(selectRestaurant)
-
+  console.log(restaurant.lat)
   return (
     <View className="bg-[#00CCBB] flex-1">
       <SafeAreaView className="z-50" >
@@ -47,6 +47,42 @@ export const DeliveryScreen = () => {
         </View>
       </SafeAreaView>
 
-    </View>
+      <MapView
+        style={{ flex: 1 }}
+        provider='AIzaSyCiGslxGHjmM4MGtc3EAwsxysITcP2mdWs'
+        initialRegion={{
+          latitude: restaurant.lat,
+          longitude: restaurant.long,
+          latitudeDelta: 0.0922,
+          longitudeDelta: 0.0421,
+        }}
+        className="flex-1 -mt-10 z-0"
+        mapType='mutedStandard'
+      >
+        {/* <MapViewDirections
+          origin={{
+            latitude: restaurant.lat,
+            longitude: restaurant.long,
+          }}
+          destination={{
+            latitude: -12.067799,
+            longitude: -76.968554,
+          }}
+          apikey={GOOGLE_MAPS_KEY}
+        /> */}
+        <Marker
+          coordinate={{
+            latitude: restaurant.lat,
+            longitude: restaurant.long,
+          }}
+          title={restaurant.title}
+          description={restaurant.short_description}
+          identifier='origin'
+          pinColor='#000CCBB'
+        />
+
+      </MapView>
+
+    </View >
   )
 }

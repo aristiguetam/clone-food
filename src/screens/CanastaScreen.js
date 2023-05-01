@@ -30,7 +30,6 @@ export const CanastaScreen = () => {
 
         setGroupedItemsInCanasta(groupedItems)
     }, [items])
-
     return (
         <SafeAreaView className="flex-1 bg-white">
             <View className="flex-1 bg-gray-100">
@@ -93,16 +92,16 @@ export const CanastaScreen = () => {
                 </ScrollView>
 
                 <View className="p-5 bg-white mt-5 space-y-4">
-                    
-                    <SubTotal texto="Subtotal" total={totalCanasta} />
-                    
-                    <SubTotal texto="Delivery Feed" total="7.99" />
-                    
-                    <SubTotal texto="Order Total" style={{color: "black"}} total={totalCanasta + 7.99} />
 
-                    <TouchableOpacity 
-                    onPress={() => navigation.navigate("PreparingScreen")}
-                    className="rounded bg-[#00ccbb] p-4">
+                    <SubTotal texto="Subtotal" total={totalCanasta} />
+
+                    <SubTotal texto="Delivery Feed" total="7.99" />
+
+                    <SubTotal texto="Order Total" style={{ color: "black" }} total={totalCanasta + 7.99} />
+
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate("PreparingScreen")}
+                        className="rounded bg-[#00ccbb] p-4">
                         <Text className="text-center text-white text-lg font-bold">
                             Place Order
                         </Text>
