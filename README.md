@@ -1,14 +1,20 @@
-##Proyecto de React Native con expo 
+# Proyecto de React Native con expo 
 
-npm install 
+* Cargamos modulos de node
 
-npm run android
+    corremos el proyecto en expo
+    
+```
+    npm install 
 
-luego 
+    npm run android
+```
 
-sanity 
+ * Cargamos el Backend con la ayuda de Sanity 
 
-cd darkgrey-wren 
-
-npm run dev 
+    ingresamos __darkgrey-wren__
+ 
+ ```
+    npm run dev 
+ ```
 
